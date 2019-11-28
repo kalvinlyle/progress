@@ -16,7 +16,9 @@ function M.clean() --delete all timers if all timers have stopped
 end
 
 function M.cancel(num)
-	timer.cancel(bars[num]["timer"])
+	if bars[num] then
+		timer.cancel(bars[num]["timer"])
+	end
 	M.clean()
 end
 
