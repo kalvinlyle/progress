@@ -19,7 +19,6 @@ function M.cancel(num)
 	if bars[num] then
 		timer.cancel(bars[num]["timer"])
 	end
-	M.clean()
 end
 
 function M.remaining(num)
@@ -35,7 +34,6 @@ function M.percent(num)
 end
 
 function M.start(delay, tick, repeating, update, action)
-	M.clean()
 	local num = #bars + 1
 	local ticktimer = os.clock()
 	bars[num] = {}
@@ -52,7 +50,7 @@ function M.start(delay, tick, repeating, update, action)
 			if repeating then 
 				bars[num]["countdown"] = delay 								-- resent the delay
 			else 
-				M.cancel(num) 												-- end the timer when the countdown reaches zero
+				--M.cancel(num) 												-- end the timer when the countdown reaches zero
 			end
 			action(num) 													-- process the action function
 		end
