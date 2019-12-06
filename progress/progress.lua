@@ -50,7 +50,7 @@ function M.start(delay, tick, repeating, update, action)
 			if repeating then 
 				bars[num]["countdown"] = delay 								-- resent the delay
 			else 
-				--M.cancel(num) 												-- end the timer when the countdown reaches zero
+				M.cancel(num) 												-- end the timer when the countdown reaches zero
 			end
 			action(num) 													-- process the action function
 		end
